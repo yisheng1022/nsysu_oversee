@@ -1,0 +1,9 @@
+selenium.webdriver.chrome.service
+bs4
+webdriver_manager.chrome
+selenium
+pandas
+random
+time
+json
+requests
