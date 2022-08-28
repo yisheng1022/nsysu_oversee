@@ -3,7 +3,6 @@ bs4
 webdriver_manager
 selenium
 pandas
-random
 time
 json
 requests
