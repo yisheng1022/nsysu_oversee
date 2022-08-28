@@ -43,7 +43,9 @@ def Get_50(key_list,first = True,run_all_day = True):
 		time.sleep(1800)
 
 key_words = ["課程","請教","涼課","初選"]
-# Get_50(key_words,first = True,run_all_day = True)
+params = {"message": "Dcard_中山大學版出現可能是您正在關注的貼文。\n標題：{}\n網址如下：{}"}
+r = requests.post("https://notify-api.line.me/api/notify",headers=headers, params=params)
+Get_50(key_words,first = True,run_all_day = True)
 
 
 
