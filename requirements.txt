@@ -1,6 +1,6 @@
-selenium.webdriver.chrome.service
+selenium
 bs4
-webdriver_manager.chrome
+webdriver_manager
 selenium
 pandas
 random
