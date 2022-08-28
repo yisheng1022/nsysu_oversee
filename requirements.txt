@@ -3,6 +3,5 @@ bs4
 webdriver_manager
 selenium
 pandas
-time
 json
 requests
