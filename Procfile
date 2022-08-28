@@ -1,3 +1,3 @@
-web: python line_notify.py
+web: python hey.py
 
-worker: python line_notify.py
+worker: python hey.py
