@@ -42,27 +42,7 @@ def Get_50(key_list,first = True,run_all_day = True):
 		first = False
 		time.sleep(1800)
 
-import os, urllib
-
-client_id = os.environ['dsq96vGfTUJ8oVsVxsaBDX']
-client_secret = os.environ['wVwLOMPyOZGMBN8X26GaSEME6kR1J7c9X39YoCG3XU5']
-redirect_uri = f"https://{os.environ['nsysuoversee']}.herokuapp.com/callback/notify"
-
-def create_auth_link(user_id, client_id=client_id, redirect_uri=redirect_uri):
-    
-    data = {
-        'response_type': 'code', 
-        'client_id': client_id, 
-        'redirect_uri': redirect_uri, 
-        'scope': 'notify', 
-        'state': user_id
-    }
-    query_str = urllib.parse.urlencode(data)
-    
-    return f'https://notify-bot.line.me/oauth/authorize?{query_str}'
-		
-create_auth_link("LYSSS")		
-key_words = ["課程","請教","涼課"]
+key_words = ["課程","請教","涼課","初選"]
 # Get_50(key_words,first = True,run_all_day = True)
 
 
