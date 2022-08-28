@@ -5,7 +5,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 import pandas as pd
 
+
 def Get_50(key_list,first = True,run_all_day = True):
+	options = webdriver.ChromeOptions()
+	options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	options.add_argument("--no-sandbox")
+	options.add_argument("--disable-gpu")
+	options.add_argument("--headless")
 	headers = {"Authorization": "Bearer " + "Q1NjshykrHWJVXOCLWCMOSjyKY6TPefqRZmxEiYGKPp","Content-Type": "application/x-www-form-urlencoded"}
 	while run_all_day:
 		art_title = []; art_urll = []; art_exc = []
@@ -14,13 +20,13 @@ def Get_50(key_list,first = True,run_all_day = True):
 			art_url = "https://www.dcard.tw/service/api/v2/forums/nsysu/posts?limit=50"
 		else:
 			art_url = "https://www.dcard.tw/service/api/v2/forums/nsysu/posts?limit=50&after={}".format()
-		open_page = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+		open_page = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
 		open_page.get(art_url)
 		while ((open_page.title == "Attention Required! | Cloudflare") | (open_page.title == "Just a moment...")):
 			open_page.close()
 			print("Too frequent visit when getting 100 article. Wait for retry.")
 			time.sleep(random.randint(300,420))
-			open_page = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+			open_page = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
 			open_page.get(art_url)
 
 		html_source = open_page.page_source
