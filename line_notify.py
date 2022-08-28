@@ -1,10 +1,9 @@
 from bs4 import BeautifulSoup as BS
-import random,time,os,pickle,json,requests,re,gc
+import random,time,os,json,requests
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 import pandas as pd
-
 
 def Get_50(key_list,first = True,run_all_day = True):
 	options = webdriver.ChromeOptions()
@@ -49,9 +48,10 @@ def Get_50(key_list,first = True,run_all_day = True):
 		time.sleep(1800)
 
 key_words = ["課程","請教","涼課","初選"]
+headers = {"Authorization": "Bearer " + "Q1NjshykrHWJVXOCLWCMOSjyKY6TPefqRZmxEiYGKPp","Content-Type": "application/x-www-form-urlencoded"}
 params = {"message": "Dcard_中山大學版出現可能是您正在關注的貼文。\n標題：{}\n網址如下：{}"}
 r = requests.post("https://notify-api.line.me/api/notify",headers=headers, params=params)
-Get_50(key_words,first = True,run_all_day = True)
+# Get_50(key_words,first = True,run_all_day = True)
 
 
 
